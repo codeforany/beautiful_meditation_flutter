@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meditation/common/color_extension.dart';
 import 'package:meditation/common_widget/round_button.dart';
+import 'package:meditation/screen/home/reminders_screen.dart';
+import 'package:meditation/screen/home/welcome_screen.dart';
 import 'package:meditation/screen/login/login_screen.dart';
 import 'package:meditation/screen/login/sign_up_screen.dart';
 
@@ -40,9 +42,9 @@ class _StartUpScreenState extends State<StartUpScreen> {
               fontWeight: FontWeight.w700,
             ),
           ),
-
-          const SizedBox(height: 15,),
-
+          const SizedBox(
+            height: 15,
+          ),
           Text(
             "Thousand of people are using silent moon\nfor smalls meditation",
             textAlign: TextAlign.center,
@@ -51,13 +53,12 @@ class _StartUpScreenState extends State<StartUpScreen> {
               fontSize: 16,
             ),
           ),
-
           const Spacer(),
-
-          RoundButton(title: "SIGN UP", onPressed: (){
+          RoundButton(
+              title: "SIGN UP",
+              onPressed: () {
                 context.push(const SignUpScreen());
-          }),
-
+              }),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -69,10 +70,11 @@ class _StartUpScreenState extends State<StartUpScreen> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-
-              TextButton(onPressed: (){
-                context.push( const LoginScreen());
-              }, child: Text(
+              TextButton(
+                onPressed: () {
+                  context.push(const LoginScreen());
+                },
+                child: Text(
                   "LOG IN",
                   style: TextStyle(
                     color: TColor.primary,
