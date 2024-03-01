@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meditation/common_widget/tab_button.dart';
 import 'package:meditation/screen/home/home_screen.dart';
+import 'package:meditation/screen/meditate/meditate_screen.dart';
 
 class MainTabViewScreen extends StatefulWidget {
   const MainTabViewScreen({super.key});
@@ -35,7 +36,7 @@ class _MainTabViewScreenState extends State<MainTabViewScreen> with SingleTicker
         children: [
         const HomeScreen(),
         Container(),
-        Container(color: Colors.yellow,),
+        const MeditateScreen(),
         Container(),
         Container( color: Colors.red, )
       ]),
