@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:meditation/common/color_extension.dart';
 import 'package:meditation/common_widget/tab_button.dart';
 import 'package:meditation/screen/home/home_screen.dart';
 import 'package:meditation/screen/meditate/meditate_screen.dart';
+import 'package:meditation/screen/music/music_screen.dart';
 
 class MainTabViewScreen extends StatefulWidget {
   const MainTabViewScreen({super.key});
@@ -35,16 +37,16 @@ class _MainTabViewScreenState extends State<MainTabViewScreen> with SingleTicker
         controller: controller,
         children: [
         const HomeScreen(),
-        Container(),
+        Container(color:  TColor.sleep,),
         const MeditateScreen(),
-        Container(),
+        const MusicScreen(),
         Container( color: Colors.red, )
       ]),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(top: 15, bottom: 8),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
+        decoration:  BoxDecoration(
+          color: selectTab == 3 || selectTab == 1 ? TColor.sleep : Colors.white,
+          boxShadow: const [
             BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, -4))
           ]
         ),
