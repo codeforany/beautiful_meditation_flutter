@@ -83,6 +83,7 @@ class _MeditateScreenState extends State<MeditateScreen> {
                     return InkWell(
                       onTap: () {
                         selectIndex = index;
+                         setState(() {});
                       },
                       child: Column(children: [
                         Container(

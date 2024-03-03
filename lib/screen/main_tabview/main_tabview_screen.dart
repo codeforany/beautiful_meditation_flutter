@@ -4,6 +4,7 @@ import 'package:meditation/common_widget/tab_button.dart';
 import 'package:meditation/screen/home/home_screen.dart';
 import 'package:meditation/screen/meditate/meditate_screen.dart';
 import 'package:meditation/screen/music/music_screen.dart';
+import 'package:meditation/screen/sleep/sleep_screen.dart';
 
 class MainTabViewScreen extends StatefulWidget {
   const MainTabViewScreen({super.key});
@@ -37,7 +38,7 @@ class _MainTabViewScreenState extends State<MainTabViewScreen> with SingleTicker
         controller: controller,
         children: [
         const HomeScreen(),
-        Container(color:  TColor.sleep,),
+        const SleepScreen(),
         const MeditateScreen(),
         const MusicScreen(),
         Container( color: Colors.red, )
