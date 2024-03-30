@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meditation/common/color_extension.dart';
+import 'package:meditation/screen/sleep/sleep_stories_detail_screen.dart';
 
 class SleepScreen extends StatefulWidget {
   const SleepScreen({super.key});
@@ -119,9 +120,7 @@ class _SleepScreenState extends State<SleepScreen> {
                             return GestureDetector(
                               onTap: () {
                                 selectIndex = index;
-                                setState(() {
-                                  
-                                });
+                                setState(() {});
                               },
                               child: Column(children: [
                                 Container(
@@ -187,8 +186,9 @@ class _SleepScreenState extends State<SleepScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-
-                                     const SizedBox(height: 60,),
+                                      const SizedBox(
+                                        height: 60,
+                                      ),
                                       const Text(
                                         "The Ocean Moon",
                                         style: TextStyle(
@@ -211,8 +211,7 @@ class _SleepScreenState extends State<SleepScreen> {
                                       const SizedBox(
                                         height: 25,
                                       ),
-
-                                       InkWell(
+                                      InkWell(
                                         onTap: () {},
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -234,7 +233,6 @@ class _SleepScreenState extends State<SleepScreen> {
                                     ],
                                   ),
                                 ),
-                                
                               ],
                             ),
                           )
@@ -256,41 +254,46 @@ class _SleepScreenState extends State<SleepScreen> {
                   childAspectRatio: 1.08),
               itemBuilder: (context, index) {
                 var cObj = listArr[index];
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        cObj["image"],
-                        width: double.maxFinite,
-                        height: context.width * 0.3,
-                        fit: BoxFit.cover,
+                return GestureDetector(
+                  onTap: () {
+                    context.push(const SleepStoriesDetailScreen());
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          cObj["image"],
+                          width: double.maxFinite,
+                          height: context.width * 0.3,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      cObj["title"],
-                      maxLines: 1,
-                      style: TextStyle(
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        cObj["title"],
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: TColor.sleepText,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        cObj["subtitle"],
+                        maxLines: 1,
+                        style: TextStyle(
                           color: TColor.sleepText,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      cObj["subtitle"],
-                      maxLines: 1,
-                      style: TextStyle(
-                        color: TColor.sleepText,
-                        fontSize: 12,
+                          fontSize: 12,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 );
               },
               itemCount: listArr.length,
